@@ -7,13 +7,18 @@ usage()
 # The message block.
 cat<<EOF
 
-The server side shall run the following command:
-	nc -l "port" | wireshark -k -i -
 USAGE: 
-	$exec interface IP port [filter ...]
+	$exec <interface> <IP> <port> [filter ...]
+	
+DESCRIPTION:
+	The script conveys the packets which captured from the device to
+	the server side.
 
 EXAMPLE:
-	$exec eth0 192.168.0.1 8888
+	The client side:
+		$exec eth0 192.168.0.1 8888
+	The server side:
+		nc -l 8888 | wireshark -k -i -
 
 OPTIONS:
 	interface      -  the names of the active network interfaces
