@@ -41,7 +41,7 @@ ip="$2"
 port="$3"
 shift 3
 if [ -n "$*" ]; then
-	# The filter condiftions non null
+	# The filter conditions non null
 	filter="and $*"
 else
 	filter=""
