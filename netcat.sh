@@ -8,7 +8,7 @@ usage()
 cat<<EOF
 
 USAGE: 
-	$exec <interface> <IP> <port> [filter ...]
+	$exec <interface> <ip> <port> [filter ...]
 	
 DESCRIPTION:
 	The script conveys the packets which captured from the device to
@@ -22,7 +22,7 @@ EXAMPLE:
 
 OPTIONS:
 	interface      -  the names of the active network interfaces
-	IP             -  the ip address of the destination
+	ip             -  the ip address of the destination
 	port           -  the port number
 	filter         -  the filter conditions for the packet
 	                  (eg: not arp and ...)
