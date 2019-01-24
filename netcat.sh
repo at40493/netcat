@@ -40,8 +40,13 @@ interface="$1"
 ip="$2"
 port="$3"
 shift 3
-filter="$*"
+if [ -n "$*" ]; then
+	# The filter condiftions non null
+	filter="and $*"
+else
+	filter=""
+fi
 
 # tcpdump --> packet --> nc
-echo "run command: tcpdump -s 0 -U -n -w - -i ${interface} ${filter} | nc ${ip} ${port}"
-tcpdump -s 0 -U -n -w - -i "${interface}" "${filter}" | nc "${ip}" "${port}"
+echo "run command: tcpdump -s 0 -U -n -w - -i ${interface} not host ${ip} and not port ${port} ${filter} | nc ${ip} ${port}"
+tcpdump -s 0 -U -n -w - -i "${interface}" not host "${ip}" and not port "${port}" "${filter}" | nc "${ip}" "${port}"
